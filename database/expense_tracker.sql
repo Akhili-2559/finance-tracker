@@ -2,13 +2,11 @@ CREATE DATABASE expense_tracker;
 
 USE expense_tracker;
 
-CREATE TABLE users(
+CREATE TABLE users (
 
     id INT PRIMARY KEY AUTO_INCREMENT,
 
-    name VARCHAR(100) NOT NULL,
-
-    email VARCHAR(100) UNIQUE NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
 
     password VARCHAR(255) NOT NULL,
 
@@ -16,7 +14,7 @@ CREATE TABLE users(
 
 );
 
-CREATE TABLE expenses(
+CREATE TABLE expenses (
 
     id INT PRIMARY KEY AUTO_INCREMENT,
 
@@ -34,6 +32,6 @@ CREATE TABLE expenses(
 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 
 );
